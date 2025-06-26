@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Family</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #a1c4fd;
+    }
+
+    .members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: linear-gradient(to right, #2c3e50, #3498db);
+    }
+
+    .member-card {
+      width: 280px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+
+    .member-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .member-card h2 {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.3rem;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .member-card:hover {
+      transform: scale(1.05);
+    }
+
+    .private-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      height: 50vh;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .private-section img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .private-section .text {
+      max-width: 600px;
+      margin: 1rem;
+      text-align: center;
+    }
+
+    .private-section h3 {
+      font-size: 2rem;
+      color: #92fe9d;
+      margin-bottom: 1rem;
+    }
+
+    .private-section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e0f7fa;
+    }
+
+    .whole-family {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+    }
+
+    .whole-family img {
+      max-width: 80%;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .whole-family h2 {
+      margin-top: 2rem;
+      font-size: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem 2rem;
+      border-radius: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #0c1445;
+    }
+
+    /* Music toggle button */
+    #music-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #music-toggle:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    @media (max-width: 768px) {
+      .member-card {
+        width: 90%;
+      }
+
+      .private-section {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+      }
+
+      .private-section img {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Music Player -->
+  <audio id="bg-music" src="song.mpeg" autoplay loop></audio>
+  <button id="music-toggle">🔊</button>
+
+  <header>
+    <h1>Meet My Wonderful Family</h1>
+  </header>
+
+  <!-- Family Cards -->
+  <section class="members">
+    <div class="member-card" onclick="document.getElementById('father').scrollIntoView({ behavior: 'smooth' })">
+      <img src="nana.jpeg" alt="Father">
+      <h2>My Father</h2>
+    </div>
+    <div class="member-card" onclick="document.getElementById('mother').scrollIntoView({ behavior: 'smooth' })">
+      <img src="amma.jpeg" alt="Mother">
+      <h2>My Mother</h2>
+    </div>
+    <div class="member-card" onclick="document.getElementById('sister').scrollIntoView({ behavior: 'smooth' })">
+      <img src="nandhu.jpeg" alt="Sister">
+      <h2>My Sister</h2>
+    </div>
+    <div class="member-card" onclick="document.getElementById('me').scrollIntoView({ behavior: 'smooth' })">
+      <img src="me.jpeg" alt="Me">
+      <h2>That's Me</h2>
+    </div>
+  </section>
+
+  <!-- Private Sections (Half Page) -->
+  <section id="father" class="private-section">
+    <img src="nana2.jpeg" alt="Father">
+    <div class="text">
+      <h3>ABOUT MY FATHER</h3>
+      <p> My father is a  businessman. He well manages the family and his business.
+         he solve every problem with his smile. 
+        He is not only a great leader at work but also a loving person at home.</p>
+    </div>
+  </section>
+
+  <section id="mother" class="private-section">
+    <img src="amma2.jpeg" alt="Mother">
+    <div class="text">
+      <h3>ABOUT MY MOTHER</h3>
+      <p>My mom is a lovely homemaker. She takes care of our family with love, patience, and strength.
+         she always supprots me in studies, she never fails to make us happy .
+          Her care and kindness make our home a warm and happy place.
+
+.</p>
+    </div>
+  </section>
+
+  <section id="sister" class="private-section">
+    <img src="nandhu2.jpeg" alt="Sister">
+    <div class="text">
+      <h3>ABOUT MY SISTER</h3>
+      <p>My sister is studying in 10th class. She is the fighter who all ways fights with me  in a funny way.
+         Along with her studies, she also enjoys spending time with family.
+          I hope she make us proud in every situation.</p>
+    </div>
+  </section>
+
+  <section id="me" class="private-section">
+    <img src="nishu1.jpeg" alt="Me">
+    <div class="text">
+      <h3>ABOUT MY SELF</h3>
+      <p>I am proud to be a part of this family and never fail to make there wishes come true.</p>
+    </div>
+  </section>
+
+  <!-- Whole Family Image -->
+  <section class="whole-family">
+    <img src="full.jpeg" alt="Whole Family">
+    <h2>United, Strong, and Happy ✨</h2>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 My Family Website. Created with 💙 and Gratitude.</p>
+  </footer>
+
+  <!-- Music Control Script -->
+  <script>
+    const music = document.getElementById("bg-music");
+    const toggle = document.getElementById("music-toggle");
+
+    toggle.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        toggle.textContent = "🔊";
+      } else {
+        music.pause();
+        toggle.textContent = "🔇";
+      }
+    });
+
+    window.addEventListener("load", () => {
+      music.play().catch(() => {
+        toggle.textContent = "🔇";
+      });
+    });
+  </script>
+
+</body>
+</html>
